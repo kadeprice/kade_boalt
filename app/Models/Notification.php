@@ -10,6 +10,11 @@ class Notification extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'read', 'notification'];
+    protected $attributes = [
+        'read' => false,
+        'notification' => ""
+    ];
+
 
     /*
      * Created By: Kade Price
@@ -27,6 +32,17 @@ class Notification extends Model
 
         } else return false;
 
+    }
+
+    /*
+     * Created By: Kade Price
+     * Purpose: Clear all the notifications for all users. Done by truncating the table.
+     */
+
+    public function clearAll()
+    {
+        $this->truncate();
+        return true;
     }
 
 
