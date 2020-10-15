@@ -11,6 +11,7 @@ class NotificationController extends Controller
 
     private $notification;
     private $user;
+
     /**
      * NotificationController constructor.
      */
@@ -42,26 +43,35 @@ class NotificationController extends Controller
         return response()->json(['success' => $this->user->notificationsAll()->get()], 200);
     }
 
+    /*
+     * Created By: Kade Price
+     * Purpose: Mark selected notification for the logged in user as read. Uses Token from Login to accept logged in user.
+     */
     public function markRead(Request $request)
     {
         $this->user = \Auth::user();
-        if($this->notification->find($request->id)->setReadStatus(true)){
+
+        if ($this->notification->findOrFail($request->id)->setReadStatus(true)) {
             return response()->json(['success' => 'Notification marked as Read'], 200);
 
         }
+        //User doesn't own this notification, so return unauthorized.
         return response()->json(['unauthorized' => 'Unauthorized'], 403);
 
     }
 
-
+    /*
+     * Created By: Kade Price
+     * Purpose: Mark selected notification for the logged in user as unread. Uses Token from Login to accept logged in user.
+     */
     public function markUnread(Request $request)
     {
         $this->user = \Auth::user();
 
-        if($this->notification->find($request->id)->setReadStatus(false)) {
+        if ($this->notification->findOrFail($request->id)->setReadStatus(false)) {
             return response()->json(['success' => 'Notification marked as Unread'], 200);
         }
-
+        //User doesn't own this notification, so return unauthorized.
         return response()->json(['unauthorized' => 'Unauthorized'], 403);
 
     }

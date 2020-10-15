@@ -32,15 +32,15 @@ class ApiController extends Controller
     {
         /**Validate the data using validation rules*/
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users',
             'password' => 'required',
         ]);
 
         /**Check the validation becomes fails or not */
         if ($validator->fails()) {
             /**Return error message */
-            return response()->json([ 'error'=> $validator->errors() ]);
+            return response()->json(['error' => $validator->errors()]);
         }
 
         /**Store all values of the fields*/
@@ -55,7 +55,7 @@ class ApiController extends Controller
         /**Create an access token for the user*/
         $success['token'] = $this->user->createToken('AppName')->accessToken;
         /**Return success message with token value*/
-        return response()->json(['success'=>$success], 200);
+        return response()->json(['success' => $success], 200);
     }
 
     /*
@@ -67,25 +67,25 @@ class ApiController extends Controller
     {
         /**Validate the data using validation rules*/
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'email'    => 'required|email',
             'password' => 'required',
         ]);
 
         /**Check the validation becomes fails or not */
         if ($validator->fails()) {
             /**Return error message */
-            return response()->json([ 'error'=> $validator->errors() ]);
+            return response()->json(['error' => $validator->errors()]);
         }
 
 
         /**Read the credentials passed by the user */
         $credentials = [
-            'email' => $request->email,
+            'email'    => $request->email,
             'password' => $request->password
         ];
 
         /**Check the credentials are valid or not */
-        if( auth()->attempt($credentials) ){
+        if (auth()->attempt($credentials)) {
             /**Store the information of authenticated user */
             $this->user = \Auth::user();
             /**Create token for the authenticated user*/
@@ -93,7 +93,7 @@ class ApiController extends Controller
             return response()->json(['success' => $success], 200);
         } else {
             /**Return error message*/
-            return response()->json(['error'=>'Unauthorized'], 401);
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
 
