@@ -22,3 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /**Route for register API */
 Route::post('register', [ApiController::class, 'register']);
+/**Route for login API */
+Route::post('login', [ApiController::class, 'login']);
+/**Route for details user API */
+Route::middleware('auth:api')->group(function(){
+
+    Route::post('details', [ApiController::class, 'user_info']);
+});
