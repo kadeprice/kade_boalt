@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,10 @@ Route::post('login', [ApiController::class, 'login']);
 Route::middleware('auth:api')->group(function(){
 
     Route::post('details', [ApiController::class, 'user_info']);
+
+    Route::post('unread-notification', [NotificationController::class ,'showUnread']);
+    Route::post('all-notification', [NotificationController::class ,'showAll']);
+    Route::post('mark-notification-read', [NotificationController::class, 'markRead']);
+    Route::post('mark-notification-unread', [NotificationController::class, 'markUnread']);
+
 });
