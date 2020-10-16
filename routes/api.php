@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SpotifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +21,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/***** Spotify Routes ********/
+Route::post('spotify-tracks', [SpotifyController::class, 'searchTracks']);
+Route::post('spotify-artists', [SpotifyController::class, 'searchArtists']);
+
 
 /**Route for register API */
 Route::post('register', [ApiController::class, 'register']);
 /**Route for login API */
 Route::post('login', [ApiController::class, 'login']);
-/**Route for details user API */
-Route::middleware('auth:api')->group(function () {
 
+/**** Protected Routes ****/
+Route::middleware('auth:api')->group(function () {
+    //Return user details
     Route::post('details', [ApiController::class, 'user_info']);
 
+    /***** Notification Routes ******/
     Route::post('create-notification', [NotificationController::class, 'store']);
-
     Route::post('unread-notification', [NotificationController::class, 'showUnread']);
     Route::post('all-notification', [NotificationController::class, 'showAll']);
     Route::post('mark-notification-read', [NotificationController::class, 'markRead']);

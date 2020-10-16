@@ -40,7 +40,7 @@ class ApiController extends Controller
         /**Check the validation becomes fails or not */
         if ($validator->fails()) {
             /**Return error message */
-            return response()->json(['error' => $validator->errors()]);
+            return response()->json(['error' => $validator->errors()],400);
         }
 
         /**Store all values of the fields*/
@@ -74,7 +74,7 @@ class ApiController extends Controller
         /**Check the validation becomes fails or not */
         if ($validator->fails()) {
             /**Return error message */
-            return response()->json(['error' => $validator->errors()]);
+            return response()->json(['error' => $validator->errors()],400);
         }
 
 
