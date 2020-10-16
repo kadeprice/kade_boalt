@@ -42,13 +42,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    /*
+     * Relationship that returns all unread notifications
+     */
     public function notificationsUnread()
     {
         return $this->hasMany('App\Models\Notification')->where('read', false);
     }
 
+    /*
+     * Relationship that returns all notifications.
+     */
     public function notificationsAll()
     {
         return $this->hasMany('App\Models\Notification');
     }
+
+
 }

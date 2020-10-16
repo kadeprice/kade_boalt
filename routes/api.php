@@ -30,6 +30,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('details', [ApiController::class, 'user_info']);
 
+    Route::post('create-notification', [NotificationController::class, 'store']);
+
     Route::post('unread-notification', [NotificationController::class, 'showUnread']);
     Route::post('all-notification', [NotificationController::class, 'showAll']);
     Route::post('mark-notification-read', [NotificationController::class, 'markRead']);

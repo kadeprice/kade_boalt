@@ -24,7 +24,7 @@ class Notification extends Model
      */
     public function setReadStatus($status)
     {
-        if (\Auth::user()->id == $this->user_id) {
+        if (\Auth::user()->id == $this->user->id) {
 
             $this->read = $status;
             $this->save();
@@ -43,6 +43,16 @@ class Notification extends Model
     {
         $this->truncate();
         return true;
+    }
+
+
+    /*
+     * Created By: Kade Price
+     * Relationship back to user.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 
 

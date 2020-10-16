@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class NotificationController extends Controller
 {
@@ -19,6 +20,33 @@ class NotificationController extends Controller
     {
         $this->notification = $notification;
         $this->user = $user;
+    }
+
+    /*
+     * Created By: Kade Price
+     * Purpose: Create a notification by rest URL. Accepts the notification text. Creates it and links to the authenticated user.
+     */
+    public function store(Request $request)
+    {
+        /**Validate the data using validation rules*/
+        $validator = Validator::make($request->all(), [
+            'notification'     => 'required',
+        ]);
+
+        /**Check the validation becomes fails or not */
+        if ($validator->fails()) {
+            /**Return error message */
+            return response()->json(['error' => $validator->errors()]);
+        }
+
+        $this->user = \Auth::user();
+        $notification = $this->notification->create([
+            'user_id' => \Auth::user()->id,
+            'notification' => $request->notification
+        ]);
+
+        return response()->json(['success' => $notification], 200);
+
     }
 
     /*
