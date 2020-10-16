@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "351826f3-484e-4baf-a5b7-71b471b554c6",
+		"name": "Boalt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/register?name=John Doe&email=john@email.com&password=12345",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John Doe"
+						},
+						{
+							"key": "email",
+							"value": "john@email.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				},
+				"description": "Rest request for registering a new user"
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/login?email=john@email.com&password=12345",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "john@email.com"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				},
+				"description": "Rest request to log user in. Returns token if correct"
+			},
+			"response": []
+		},
+		{
+			"name": "User Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDg0OThiYmI4NTEyYTc2YzY3MGJhNjRhZjRiZmEzOThkZjM2Mzk2MjRkYTg3ZDIxM2Q0OWFjYmQ2YjhmZDA2NjgzYzQzNjhlYTEwNmUwM2YiLCJpYXQiOjE2MDI4MDU3ODYsIm5iZiI6MTYwMjgwNTc4NiwiZXhwIjoxNjM0MzQxNzg2LCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.8McMKX_FlGT4zCTh3mt5QcVXoaeJ8SocRy2Oyx0GgNgU6kXI9ogy-nkWhq7QgLNI7rRN2zM6SxBrWMKGvhcXBduFSo626wnEgNybLWIte4iMrRC9PDugYu9bff5kzfmV1kLmIVruFk3eWYNyIId02eKloGToap3QwVwHEa5QjzV_EQKy6SVM6hoB3nJYQbkeR2w5L7Sr-fT3Ly1JifxJ8V6xaKkqL7UqyB9qMeFbSk_KlivBHYMwS06-LICqkjAlVkZn1jadt5LHozYd_g5zppRPFbae9qB7-MiZzy0JtehlAXTOoiwYvIUww8FXY1o3-WsRhhUYfLUkhB5YpTYxBkmGwJGHe7DOm_o7ZbArR3nPH3Aewqe16nlTlZoJchG7mw2l4dAHlw1fBvrK0wqQHI7jNWPqPkwwUBsgRxVGIUXc4ExMgvjWyz-iT898FJlSXWCmcU-aPcN1m-MBc4PIuZ2CutHQzLyloNOgWhdk-tK1c6tZoqpiFXXhE5Tx-wUhpPMRW6NjpfZWNw-lP-nSwsezxg2Ir2eXOkfR-jUmstbf9dilWo2jk5UMTkmk1iwc3COXXCq3ACx0nDgmxRwcQbM5powNfuYRl5uOloQoUvs2f8o2zneFWlsRZR1gGXfV4BndkzbgugFGcqhfba-jiSlugduSrJpGFsEUE7UmCQs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/details",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"details"
+					]
+				},
+				"description": "Rest request to get user details, with authentication"
+			},
+			"response": []
+		},
+		{
+			"name": "View Unread Notifications",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDg0OThiYmI4NTEyYTc2YzY3MGJhNjRhZjRiZmEzOThkZjM2Mzk2MjRkYTg3ZDIxM2Q0OWFjYmQ2YjhmZDA2NjgzYzQzNjhlYTEwNmUwM2YiLCJpYXQiOjE2MDI4MDU3ODYsIm5iZiI6MTYwMjgwNTc4NiwiZXhwIjoxNjM0MzQxNzg2LCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.8McMKX_FlGT4zCTh3mt5QcVXoaeJ8SocRy2Oyx0GgNgU6kXI9ogy-nkWhq7QgLNI7rRN2zM6SxBrWMKGvhcXBduFSo626wnEgNybLWIte4iMrRC9PDugYu9bff5kzfmV1kLmIVruFk3eWYNyIId02eKloGToap3QwVwHEa5QjzV_EQKy6SVM6hoB3nJYQbkeR2w5L7Sr-fT3Ly1JifxJ8V6xaKkqL7UqyB9qMeFbSk_KlivBHYMwS06-LICqkjAlVkZn1jadt5LHozYd_g5zppRPFbae9qB7-MiZzy0JtehlAXTOoiwYvIUww8FXY1o3-WsRhhUYfLUkhB5YpTYxBkmGwJGHe7DOm_o7ZbArR3nPH3Aewqe16nlTlZoJchG7mw2l4dAHlw1fBvrK0wqQHI7jNWPqPkwwUBsgRxVGIUXc4ExMgvjWyz-iT898FJlSXWCmcU-aPcN1m-MBc4PIuZ2CutHQzLyloNOgWhdk-tK1c6tZoqpiFXXhE5Tx-wUhpPMRW6NjpfZWNw-lP-nSwsezxg2Ir2eXOkfR-jUmstbf9dilWo2jk5UMTkmk1iwc3COXXCq3ACx0nDgmxRwcQbM5powNfuYRl5uOloQoUvs2f8o2zneFWlsRZR1gGXfV4BndkzbgugFGcqhfba-jiSlugduSrJpGFsEUE7UmCQs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/unread-notification",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"unread-notification"
+					]
+				},
+				"description": "Rest request to get all unread notifications"
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Notification Read",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDg0OThiYmI4NTEyYTc2YzY3MGJhNjRhZjRiZmEzOThkZjM2Mzk2MjRkYTg3ZDIxM2Q0OWFjYmQ2YjhmZDA2NjgzYzQzNjhlYTEwNmUwM2YiLCJpYXQiOjE2MDI4MDU3ODYsIm5iZiI6MTYwMjgwNTc4NiwiZXhwIjoxNjM0MzQxNzg2LCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.8McMKX_FlGT4zCTh3mt5QcVXoaeJ8SocRy2Oyx0GgNgU6kXI9ogy-nkWhq7QgLNI7rRN2zM6SxBrWMKGvhcXBduFSo626wnEgNybLWIte4iMrRC9PDugYu9bff5kzfmV1kLmIVruFk3eWYNyIId02eKloGToap3QwVwHEa5QjzV_EQKy6SVM6hoB3nJYQbkeR2w5L7Sr-fT3Ly1JifxJ8V6xaKkqL7UqyB9qMeFbSk_KlivBHYMwS06-LICqkjAlVkZn1jadt5LHozYd_g5zppRPFbae9qB7-MiZzy0JtehlAXTOoiwYvIUww8FXY1o3-WsRhhUYfLUkhB5YpTYxBkmGwJGHe7DOm_o7ZbArR3nPH3Aewqe16nlTlZoJchG7mw2l4dAHlw1fBvrK0wqQHI7jNWPqPkwwUBsgRxVGIUXc4ExMgvjWyz-iT898FJlSXWCmcU-aPcN1m-MBc4PIuZ2CutHQzLyloNOgWhdk-tK1c6tZoqpiFXXhE5Tx-wUhpPMRW6NjpfZWNw-lP-nSwsezxg2Ir2eXOkfR-jUmstbf9dilWo2jk5UMTkmk1iwc3COXXCq3ACx0nDgmxRwcQbM5powNfuYRl5uOloQoUvs2f8o2zneFWlsRZR1gGXfV4BndkzbgugFGcqhfba-jiSlugduSrJpGFsEUE7UmCQs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/mark-notification-read?id=1",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"mark-notification-read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Rest request to mark the notification as read"
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Notification Unread",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDg0OThiYmI4NTEyYTc2YzY3MGJhNjRhZjRiZmEzOThkZjM2Mzk2MjRkYTg3ZDIxM2Q0OWFjYmQ2YjhmZDA2NjgzYzQzNjhlYTEwNmUwM2YiLCJpYXQiOjE2MDI4MDU3ODYsIm5iZiI6MTYwMjgwNTc4NiwiZXhwIjoxNjM0MzQxNzg2LCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.8McMKX_FlGT4zCTh3mt5QcVXoaeJ8SocRy2Oyx0GgNgU6kXI9ogy-nkWhq7QgLNI7rRN2zM6SxBrWMKGvhcXBduFSo626wnEgNybLWIte4iMrRC9PDugYu9bff5kzfmV1kLmIVruFk3eWYNyIId02eKloGToap3QwVwHEa5QjzV_EQKy6SVM6hoB3nJYQbkeR2w5L7Sr-fT3Ly1JifxJ8V6xaKkqL7UqyB9qMeFbSk_KlivBHYMwS06-LICqkjAlVkZn1jadt5LHozYd_g5zppRPFbae9qB7-MiZzy0JtehlAXTOoiwYvIUww8FXY1o3-WsRhhUYfLUkhB5YpTYxBkmGwJGHe7DOm_o7ZbArR3nPH3Aewqe16nlTlZoJchG7mw2l4dAHlw1fBvrK0wqQHI7jNWPqPkwwUBsgRxVGIUXc4ExMgvjWyz-iT898FJlSXWCmcU-aPcN1m-MBc4PIuZ2CutHQzLyloNOgWhdk-tK1c6tZoqpiFXXhE5Tx-wUhpPMRW6NjpfZWNw-lP-nSwsezxg2Ir2eXOkfR-jUmstbf9dilWo2jk5UMTkmk1iwc3COXXCq3ACx0nDgmxRwcQbM5powNfuYRl5uOloQoUvs2f8o2zneFWlsRZR1gGXfV4BndkzbgugFGcqhfba-jiSlugduSrJpGFsEUE7UmCQs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/mark-notification-unread?id=1",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"mark-notification-unread"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Rest request to mark notification as unread"
+			},
+			"response": []
+		},
+		{
+			"name": "Craete Notification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmM1ZTQzY2U1NmEzYmZmNzc1N2FiNWMwOGE3MTNjNzQ3NDdhMWYwYzU5Zjk5MmYzNjQzZTQzZjk2ZGZkMDY4Y2M3ZWNiOTg0NjBiNTliMWYiLCJpYXQiOjE2MDI4MDg2NDAsIm5iZiI6MTYwMjgwODY0MCwiZXhwIjoxNjM0MzQ0NjQwLCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.QT-Vmjm-XPxQpIAIFZa27QpF1xAl2KS4RMClq0qDwUnLBqG6GHsYYP1TybqkA2fgCyNKn9ZySFE1KbY-u5H9iJkXjB7vFVczwuqHvPtkLbzISqNwRZCrxdssLVg0m7DRVndqfO5nIWIdInqwgbJo_V5y6GjAyDGpzYnjcqsYLDBXOeUcWY8zISK6431jiuzCUnhk7tWVsOvK1h78-INNt-yPjbwcR6K_7-tNlSImJcvO1PcU1cwqYGgGxaA0PqlEuXrgj19Z2DrpbJ1xO7YSnfQLRIrLptM0GX46iFuww0SBewpu4WrNS3-iPdKGnuus36AadMb1l_8FITovo8uclnuQIxDbhVZECaWR1S6KEWvLxmGFoAkXy_fIgz9x9QUq_I-hOT8WoJwvswdYCpNEdIhMAPtmdymUw3pPVJHopsiG1hv6YlI9mEunIjGULoK5RI7KMLa8OJChxmYZnoAfTJw84uoSDo9N3ZquzhJOhqlsPGNiXpTlokBsbXhQwlmGRv0K_71g6nzRVAnwGN-0TrljPn33SdvgeEEbt3KNrwQbtL6vOjDJslUpozGkzUhuI3oQqADG9uUM6hW1khH1WSjJfa5dSeIjg2YxLSMSRfXfa3AK9YoRpCjayRYwupQUzrkIqBreU7TBcBKqy1yTU5JwtXaMblFKrVNvjFdDlT0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "notification",
+							"value": "This is the notificationf from REST URL",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/create-notification",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"create-notification"
+					]
+				},
+				"description": "Rest request to create notification for authenticated user"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Artist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDJkMmYzMzc5YjRhYjI2NjlmOGU3YzdmYzQ1MDc1YzE0ZGM2ZDYyN2VmOWMxZDZlNTA5ZjkyYmVlZjM4NGRkOGFkN2JlZWZkYTI3ZDIyZmMiLCJpYXQiOjE2MDI4Njc2NzEsIm5iZiI6MTYwMjg2NzY3MSwiZXhwIjoxNjM0NDAzNjcxLCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.Y2Hbh99V5dQS91-QkePxpatnNUbSN40-lCA81W514FRvy4RtI3R0nVOWI9IWFmEQF-OY4sHvLHxm9R21gXCre35Wn_aeg51JbUUA6fTjNLqSlNuR2RoBM_foQS1i2MVLrqe-55LBBl14sIZ0eilq0qm--HQcovHT83dRjNTXPV_rhOlZT0PUA6gmwlUjMxk7DHuZA3EjRJ8rg0iVYomnl0KLEs4KMdWvbuq8G39jhq99a4v-CpoOupbJxPsYEFJ2hw86yg9CqOI2DlCHGjs7WUA62KQbH4FC_1V8RqB1Dq5Ag7YFeA7vTFRZp7EH3xz3fHtRewuRCHrhtxcWb_ZK3h5qurMPg22JAlLU5UKqNdut_6ryC_MIDCl-bu7MhbK0q4mFGs_06nQrr1fR0BFEr07Lng4Wc3u5E-v4gRooExzLRU6bGK7ItkuW09TOoNDQgJjZHdcW6uMKM5uzAIawGaCu-qNwwuvJSoGb5JUa_5qCSN2MxZTUUqBVxI7c-RoOSOovCrIuzcfAK-Zr7CeOl_Qyju5NvbAlRokTZtTOUdyqrg0y4IH9Mh0D6CN10yVXD_mF6UNayXz3g7n4rgOB0BLrio0qW43gPb8HTC8ekxtTmxFlBASP6lG5DJZP-E9fMU5YDH4FqCgboI9YLvb4iGyaL-_fz0r9pj0VEaCQPgg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "artists",
+							"value": "Metallica",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/spotify-artists",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"spotify-artists"
+					]
+				},
+				"description": "REST request to search for an artist on spotify. Queries spotify and returns json results"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Tracks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmM1ZTQzY2U1NmEzYmZmNzc1N2FiNWMwOGE3MTNjNzQ3NDdhMWYwYzU5Zjk5MmYzNjQzZTQzZjk2ZGZkMDY4Y2M3ZWNiOTg0NjBiNTliMWYiLCJpYXQiOjE2MDI4MDg2NDAsIm5iZiI6MTYwMjgwODY0MCwiZXhwIjoxNjM0MzQ0NjQwLCJzdWIiOiIxMDIiLCJzY29wZXMiOltdfQ.QT-Vmjm-XPxQpIAIFZa27QpF1xAl2KS4RMClq0qDwUnLBqG6GHsYYP1TybqkA2fgCyNKn9ZySFE1KbY-u5H9iJkXjB7vFVczwuqHvPtkLbzISqNwRZCrxdssLVg0m7DRVndqfO5nIWIdInqwgbJo_V5y6GjAyDGpzYnjcqsYLDBXOeUcWY8zISK6431jiuzCUnhk7tWVsOvK1h78-INNt-yPjbwcR6K_7-tNlSImJcvO1PcU1cwqYGgGxaA0PqlEuXrgj19Z2DrpbJ1xO7YSnfQLRIrLptM0GX46iFuww0SBewpu4WrNS3-iPdKGnuus36AadMb1l_8FITovo8uclnuQIxDbhVZECaWR1S6KEWvLxmGFoAkXy_fIgz9x9QUq_I-hOT8WoJwvswdYCpNEdIhMAPtmdymUw3pPVJHopsiG1hv6YlI9mEunIjGULoK5RI7KMLa8OJChxmYZnoAfTJw84uoSDo9N3ZquzhJOhqlsPGNiXpTlokBsbXhQwlmGRv0K_71g6nzRVAnwGN-0TrljPn33SdvgeEEbt3KNrwQbtL6vOjDJslUpozGkzUhuI3oQqADG9uUM6hW1khH1WSjJfa5dSeIjg2YxLSMSRfXfa3AK9YoRpCjayRYwupQUzrkIqBreU7TBcBKqy1yTU5JwtXaMblFKrVNvjFdDlT0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tracks",
+							"value": "Sound of Silence",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://boalt.kadeprice.com/api/spotify-tracks",
+					"protocol": "http",
+					"host": [
+						"boalt",
+						"kadeprice",
+						"com"
+					],
+					"path": [
+						"api",
+						"spotify-tracks"
+					]
+				},
+				"description": "REST request to search tracks on spotify. "
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
