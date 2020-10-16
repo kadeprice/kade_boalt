@@ -21,9 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/***** Spotify Routes ********/
-Route::post('spotify-tracks', [SpotifyController::class, 'searchTracks']);
-Route::post('spotify-artists', [SpotifyController::class, 'searchArtists']);
+
 
 
 /**Route for register API */
@@ -43,4 +41,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('mark-notification-read', [NotificationController::class, 'markRead']);
     Route::post('mark-notification-unread', [NotificationController::class, 'markUnread']);
 
+    /***** Spotify Routes ********/
+    Route::post('spotify-tracks', [SpotifyController::class, 'searchTracks']);
+    Route::post('spotify-artists', [SpotifyController::class, 'searchArtists']);
 });
